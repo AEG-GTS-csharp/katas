@@ -9,3 +9,49 @@
 - Person A ein schreibt einen Test, der fehlschlägt.
 - Person B versucht in kürzester Zeit das Progammierproblem soweit zu lösen, dass der Test nicht mehr fehlschlägt.
 - Anschließend tauschen A und B die Rollen
+
+## Setup
+
+### Projektordner anlegen und ins Verzeichnis wechseln
+
+``` ps1
+ni -Type Directory {Name-of-Project}
+cd {Name-of-Project}
+```
+### Projetmappe anlegen
+
+``` ps1
+dotnet new sln
+```
+
+### Konsolenanwendung erstellen
+
+``` ps1
+dotnet new console app
+```
+
+### Testanwendung erstellen
+
+```
+dotnet new xunit tests
+```
+
+### Konsolenanwendung und Testanwendung zur Projektmappe hinzufügen
+
+``` ps1
+dotnet sln .\{Proktmappenname}.slnx add .\app\app.csproj
+dotnet sln .\{Proktmappenname}.slnx add .\tests\tests.csproj
+```
+
+### Referenz von der Konsolenanwendung zur Testanwendung
+
+``` ps1
+dotnet add .\tests\tests.csproj reference .\app\app.csproj
+```
+
+### Projektmappe bauen und Konsolen- und Testanwendung ausführen
+
+``` ps1
+dotnet build
+dotnet run --project ./app/app.csproj
+```
