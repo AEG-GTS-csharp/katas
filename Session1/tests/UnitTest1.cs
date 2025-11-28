@@ -1,5 +1,7 @@
 ﻿namespace tests;
 
+using App;
+
 public class Tests
 {
     [SetUp]
@@ -8,8 +10,26 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void ReturnZeroPointsIfNoArrayGiven()
     {
-        Assert.Pass();
+        int result = App.CalculatePoints();
+        Assert.That(result == 0);
+    }
+
+    [Test]
+    public void TakesStringArray()
+    {
+        string[] gameResult = new string[10];
+        int result = App.CalculatePoints(gameResult);
+        Assert.That(result == 0);
+    }
+
+    [Test]
+
+    public void ThrowsOutOfRangeEx()
+    {
+        string[] gameResult = new string[99];
+
+        Assert.Throws<ArgumentException>(() => App.CalculatePoints(gameResult));
     }
 }
