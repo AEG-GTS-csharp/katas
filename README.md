@@ -27,13 +27,13 @@ dotnet new sln
 ### Konsolenanwendung erstellen
 
 ``` ps1
-dotnet new console app
+dotnet new console -n app
 ```
 
 ### Testanwendung erstellen
 
 ```
-dotnet new xunit tests
+dotnet new xunit -n tests
 ```
 
 ### Konsolenanwendung und Testanwendung zur Projektmappe hinzufügen
