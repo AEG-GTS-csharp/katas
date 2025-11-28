@@ -54,4 +54,5 @@ dotnet add .\tests\tests.csproj reference .\app\app.csproj
 ``` ps1
 dotnet build
 dotnet run --project ./app/app.csproj
+dotnet test
 ```
