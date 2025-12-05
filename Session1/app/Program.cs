@@ -8,11 +8,23 @@ public class App
 
     public static int CalculatePoints()
     {
-        return CalculatePoints(new string[1]);
+        return 0;
     }
 
     public static int CalculatePoints(string[] gameResult)
     {
+        if (gameResult.Length != 10)
+        {
+            throw new ArgumentException(nameof(gameResult));
+        }
         return 0;
+    }
+
+    public static void CheckFormat(String gameResult)
+    {
+        if (gameResult == String.Empty)
+        {
+            throw new FormatException();
+        }
     }
 }
