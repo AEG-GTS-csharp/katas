@@ -5,15 +5,15 @@ namespace Anagram.UnitTest
     public class UnitTest1
     {
         [Test]
-        public void ReturnAllWordsShorterThenOrEqualTo9()
+        public void ReturnAllWordsLongerThanZero()
         {
-            Assert.That(Program.LoadWordList().All(word => word.Length <= 9));
+            Assert.That(Program.LoadWordList().All(word => word.Length > 0));
         }
 
         [Test]
-        public void ReturnAllWordsLongerThen0()
+        public void ReturnAllWordsNotIncludingWhitespace()
         {
-            Assert.That(Program.LoadWordList().All(word => word.Length > 0));
+            Assert.That(Program.LoadWordList().All(word => !word.Any(char.IsWhiteSpace)));
         }
 
         [Test]

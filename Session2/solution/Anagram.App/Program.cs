@@ -14,22 +14,25 @@
         public static List<string> LoadWordList()
         {
             using var file = File.OpenText("words.txt");
+            string content = file.ReadToEnd();
+            return ParseWords(content);
+        }
 
+        public static List<string> ParseWords(string content)
+        {
             List<string> words = [];
-            while (true)
+            int i = 0;
+            while (i < content.Length)
             {
-                string? line = file.ReadLine();
-                if (line is null)
+                while (i < content.Length && char.IsWhiteSpace(content[i]))
+                    i++;
+                if (i >= content.Length)
                     break;
-
-                const int maxWordLength = 9;
-                for (int i = 0; i < line.Length / maxWordLength; i++)
-                {
-                    string word = line.Substring(i * maxWordLength, maxWordLength).TrimEnd();
-                    words.Add(word);
-                }
+                int wordStart = i;
+                while (i < content.Length && !char.IsWhiteSpace(content[i]))
+                    i++;
+                words.Add(content[wordStart..i]);
             }
-
             return words;
         }
 
