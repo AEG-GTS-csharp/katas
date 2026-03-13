@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawable="clr-namespace:ConwaysGoL.MauiAppProject"
+             x:Class="ConwaysGoL.MauiAppProject.MainPage">
+
+    <ScrollView>
+        <Grid 
+            Padding="20"
+            RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <AbsoluteLayout>
+                    <GraphicsView 
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="SizeProportional"
+                        x:Name="SimulationCanvas"
+                        DragInteraction="OnDragSimulationCanvas"
+                        StartInteraction="OnClickSimulationCanvas"/>
+
+                    <Border
+                        HorizontalOptions="End"
+                        VerticalOptions="End"
+                        AbsoluteLayout.LayoutBounds="-10,-10,1,1"
+                        AbsoluteLayout.LayoutFlags="SizeProportional"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}"
+                        Padding="10,5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
+                        
+                        <VerticalStackLayout
+                            Spacing="5"
+                            WidthRequest="150">
+                            <Label x:Name="IterationLabel"/>
+                            <Label x:Name="AliveCellsLabel"/>
+                            <Label x:Name="SpeedLabel"/>
+                            <Slider x:Name="SpeedSlider" 
+                                    ValueChanged="OnSpeedChanged"
+                                    Minimum="-2"
+                                    Maximum="15"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        AbsoluteLayout.LayoutBounds="10,-10,1,1"
+                        AbsoluteLayout.LayoutFlags="SizeProportional"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}"
+                        Padding="10,5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout 
+                            Spacing="5"
+                            WidthRequest="150">
+                            <Label Text="Zoom"/>
+                            <Grid ColumnSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Grid.Column="0" Text="-" VerticalTextAlignment="Center"/>
+                                <Slider 
+                                    x:Name="ZoomSlider"
+                                    Grid.Column="1" 
+                                    ValueChanged="OnZoomSimulationCanvas"/>
+                                <Label Grid.Column="2" Text="+" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </AbsoluteLayout>
+            </Border>
+
+            <Grid 
+                Grid.Row="1"
+                ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button 
+                    Grid.Column="0"
+                    Text="Start"
+                    HorizontalOptions="Fill"
+                    Clicked="OnToggleSimulation"
+                    BackgroundColor="{AppThemeBinding Dark=LightGreen, Light=Green}"
+                    x:Name="StartBtn"/>
+                <Button 
+                    Grid.Column="1"
+                    Text="Next"
+                    HorizontalOptions="Fill"
+                    Clicked="OnNextIteration"/>
+                <Button 
+                    Grid.Column="2"
+                    Text="Reset"
+                    HorizontalOptions="Fill"
+                    BackgroundColor="{AppThemeBinding Dark=IndianRed, Light=Red}"
+                    Clicked="OnResetSimulation"/>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
