@@ -23,7 +23,8 @@
                         AbsoluteLayout.LayoutFlags="SizeProportional"
                         x:Name="SimulationCanvas"
                         DragInteraction="OnDragSimulationCanvas"
-                        StartInteraction="OnClickSimulationCanvas"/>
+                        StartInteraction="OnClickSimulationCanvas"
+                        EndInteraction="OnClickReleaseSimulationCanvas"/>
 
                     <Border
                         HorizontalOptions="End"

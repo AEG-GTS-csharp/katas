@@ -34,6 +34,20 @@ namespace ConwaysGoL.MauiAppProject
 
         public float GridScale => float.Pow(2, GridZoom);
 
+        public Cell GetCellFromCoords(PointF canvasCoords, RectF canvasRect)
+        {
+            float gridScale = GridScale;
+
+            float translateX = canvasRect.Center.X + GridOrigin.X * gridScale;
+            float translateY = canvasRect.Center.Y + GridOrigin.Y * gridScale;
+
+            float cellSize = canvasRect.Width * gridScale;
+
+            return new Cell(
+                (int)Math.Floor((canvasCoords.X - translateX) / cellSize),
+                (int)Math.Floor((canvasCoords.Y - translateY) / cellSize));
+        }
+
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
             _aliveCellsCache = _cGoLBackgroundService.TryGetAliveCellsNonBlocking() ?? _aliveCellsCache;

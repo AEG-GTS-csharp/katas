@@ -42,6 +42,12 @@ namespace ConwaysGoL.Application
             }
         }
 
+        public void ToggleCell(Cell cell)
+        {
+            if (!_aliveCells.Add(cell))
+                _aliveCells.Remove(cell);
+        }
+
         public void Next()
         {
             HashSet<Cell> newAliveCells = new(_aliveCells.Capacity);

@@ -14,6 +14,7 @@ namespace ConwaysGoL.MauiAppProject
 
         private PointF _lastSimCanvasTouch;
         private PointF _lastSimCanvasOrigion;
+        private bool _touchGotDragged;
 
         public MainPage(
             CGoLBackgroundService cGoLBackgroundService, 
@@ -132,6 +133,7 @@ namespace ConwaysGoL.MauiAppProject
                     _lastSimCanvasOrigion.Y + (args.Touches[0].Y - _lastSimCanvasTouch.Y) / _simulationCanvas.GridScale);
 
                 SimulationCanvas.Invalidate();
+                _touchGotDragged = true;
             }
         }
 
@@ -141,6 +143,16 @@ namespace ConwaysGoL.MauiAppProject
             {
                 _lastSimCanvasTouch = args.Touches[0];
                 _lastSimCanvasOrigion = _simulationCanvas.GridOrigin;
+                _touchGotDragged = false;
+            }
+        }
+
+        private void OnClickReleaseSimulationCanvas(object sender, TouchEventArgs args)
+        {
+            if (!_touchGotDragged && args.Touches.Length == 1)
+            {
+                _cGoLBackgroundService.ToggleCell(_simulationCanvas.GetCellFromCoords(args.Touches[0], SimulationCanvas.Bounds));
+                SimulationCanvas.Invalidate();
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using ConwaysGoL.Application.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ConwaysGoL.Application.Services
 {
@@ -87,6 +88,14 @@ namespace ConwaysGoL.Application.Services
             lock (_serviceLock)
             {
                 _simulator.AddCellsFromText(topLeftCorner, text);
+            }
+        }
+
+        public void ToggleCell(Cell cell)
+        {
+            lock (_serviceLock)
+            {
+                _simulator.ToggleCell(cell);
             }
         }
 
