@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGoL.MauiAppProject", "ConwaysGoL.MauiAppProject\ConwaysGoL.MauiAppProject.csproj", "{BB774263-2A7E-4AE4-8320-D8EDD2B43161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGoL.Application", "ConwaysGoL.Application\ConwaysGoL.Application.csproj", "{0DDCB52C-160F-4111-8873-74DEA66270E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGoL.ConsoleApp", "ConwaysGoL.ConsoleApp\ConwaysGoL.ConsoleApp.csproj", "{5EFA0060-6095-4835-9735-F96812F5B2F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB774263-2A7E-4AE4-8320-D8EDD2B43161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB774263-2A7E-4AE4-8320-D8EDD2B43161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB774263-2A7E-4AE4-8320-D8EDD2B43161}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BB774263-2A7E-4AE4-8320-D8EDD2B43161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB774263-2A7E-4AE4-8320-D8EDD2B43161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDCB52C-160F-4111-8873-74DEA66270E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDCB52C-160F-4111-8873-74DEA66270E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDCB52C-160F-4111-8873-74DEA66270E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDCB52C-160F-4111-8873-74DEA66270E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFA0060-6095-4835-9735-F96812F5B2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFA0060-6095-4835-9735-F96812F5B2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFA0060-6095-4835-9735-F96812F5B2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFA0060-6095-4835-9735-F96812F5B2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {826785B9-E62C-446D-AD53-E73B1BC9AA90}
+	EndGlobalSection
+EndGlobal
